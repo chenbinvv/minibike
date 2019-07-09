@@ -1,0 +1,36 @@
+spring:
+  mvc:
+    view:
+      prefix: /pages/
+      suffix: .html
+  data:
+    mongodb:
+      uri: mongodb://xiaoniu:123456@192.168.196.11:27017/minibike
+#      username: xiaoniu
+#      password: 123456
+#      host: 192.168.196.11
+#      port: 27017
+#      database: minibike
+#      用这种方式就会出错，Why?
+  redis:
+    host: 192.168.196.12
+    port: 6379
+    password: 123456
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 4
+        max-wait: -1s
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/minibike?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+logging:
+  level:
+    com:
+      cb:
+        minibike: debug

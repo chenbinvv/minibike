@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cb.minibike.mapper.BikeMapper">
+
+    <resultMap id="BikeResultMap" type="com.cb.minibike.entity.Bike">
+        <id property="id" column="id"/>
+        <result property="longitude" column="longitude"/>
+        <result property="latitude" column="latitude"/>
+        <result property="qrCode" column="qr_code"/>
+        <result property="status" column="status"/>
+    </resultMap>
+    <!--<resultMap id="BaseResultMap" type="com.bdai.fe.entity.Flow" >-->
+    <!--<result column="params" property="params" typeHandler="com.bdai.fe.handler.JSONTypeHandler" />-->
+    <!--</resultMap>-->
+
+
+    <insert id="saveBike" parameterType="com.cb.minibike.entity.Bike">
+        insert into bike (longitude,latitude,qr_code,status)
+        values (#{longitude},#{latitude},#{qrCode},#{status})
+    </insert>
+
+<!--
+    <insert id="flowSave">
+        insert ignore into flow (sid,`index`,method,params)
+        values (#{sid},#{index},#{method},#{params})
+    </insert>
+
+    <select id="getFlowById" resultType="com.bdai.fe.entity.Flow">
+        select * from flow where id=#{id}
+    </select>
+
+    <update id="flowUpdate">
+        update flow
+            set method=#{method},params=#{params}
+            where id=#{id}
+    </update>
+
+    <delete id="deleFlowById" parameterType="java.lang.Integer">
+        delete from flow where id = #{id }
+    </delete>
+-->
+
+</mapper>
